@@ -34,8 +34,7 @@ jobs:
           # Ghidra versions prior to 9.2 lack the Gson JSON library, and are not supported.
 
     runs-on: ubuntu-latest
-    container:
-      image: ${{ env.CONTAINER_IMAGE }}:${{ matrix.ghidra-version }}
+    container: "${{ env.CONTAINER_IMAGE }}:${{ matrix.ghidra-version }}"
     steps:
       - name: Checkout
         id: checkout
