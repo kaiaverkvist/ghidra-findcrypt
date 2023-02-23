@@ -28,7 +28,11 @@ jobs:
           - "10.2.3"
 
     runs-on: ubuntu-latest
-    container: "ghcr.io/${{ github.repository_owner }}/ghidra-container:${{ matrix.ghidra-version }}"
+    container:
+      image: "ghcr.io/${{ github.repository_owner }}/ghidra-container:${{ matrix.ghidra-version }}"
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout
         id: checkout
